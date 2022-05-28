@@ -1,0 +1,15 @@
+x = 100
+y = 1
+count = 0
+while True:
+  num = (x + y) // 2
+  print('Число больше, меньше или равно: ', num)
+  answer = int(input('1 - равно, 2 - меньше, 3 - больше: '))
+  count += 1
+  if answer == 1:
+    print('Верно! c', count, 'попытки')
+    break
+  elif answer == 2:
+    x = num
+  elif answer == 3:
+    y = num
