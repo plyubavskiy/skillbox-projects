@@ -1,0 +1,67 @@
+def rock_paper_scissors():
+  from random import randrange
+  print('\nВыбери: 1 - камень, 2 - ножницы, 3 - бумага?')
+  player = int(input('Твой выбор: '))
+  if player == 1:
+    print('[Игрок] Вы выбрали Камень')
+  elif player == 2:
+    print('[Игрок] Вы выбрали Ножницы')
+  elif player == 3:
+    print('[Игрок] Вы выбрали Бумага')
+  else:
+    print('\nОшибка ввода! Введите 1 или 2 или 3.')
+    rock_paper_scissors()
+  comp = randrange(3) + 1
+  if comp == 1:
+    print('[Компьютер] Компьютер выбрал Камень')
+  elif comp == 2:
+    print('[Компьютер] Компьютер выбрал Ножницы')
+  else:
+    print('[Компьютер] Компьютер выбрал Бумага')
+  if comp == player:
+    print('\nНет победителя! Попробуйте ещё раз.')
+    rock_paper_scissors()
+  elif player == 1 and comp == 2 or player == 2 and comp == 3 or         player == 3 and comp == 1:
+    print('\nПобедитель - Игрок!')
+    print('Игра закончена')
+    mainMenu()
+  elif player == 1 and comp == 3 or player == 2 and comp == 1 or         player == 3 and comp == 2:
+    print('\nПобедитель - Компьютер!')
+    print('Игра закончена')
+    mainMenu()
+
+def guess_the_number():
+  from random import randint
+  comp = randint(1, 10)
+  while True:
+    player = int(input('\nВведите число от 1 до 10: '))
+    if player == comp:
+      print('\nВы угадали!')
+      print('Игра закончена')
+      mainMenu()
+      break
+    elif player > comp:
+      print('\nНе верно! Но ваше число - больше. Попробуйте снова.')
+    else:
+      print('\nНе верно! Но ваше число - меньше. Попробуйте снова.')
+      
+def mainMenu():
+  choice1 = int(input('\nПривет! Хочешь сыграть: 1 - да / 2 - нет? '))
+  print()
+  if choice1 == 1:
+    print('Хорошо, давай сыграем, выбери игру:')
+    choice2 = int(input('1 - камень, ножницы, бумага. 2 - Угадай число. Твой выбор: 1 / 2? '))
+    if choice2 == 1:
+      rock_paper_scissors()
+    elif choice2 == 2:
+      guess_the_number()
+    else:
+      print('\nОшибка ввода! Введите 1 или 2 и попробуйте снова.')
+      mainMenu()
+  elif choice1 == 2:
+    print('\nХорошего дня!')
+  else:
+    print('\nОшибка ввода! Введите 1 или 2 и попробуйте снова.')
+    mainMenu()
+
+mainMenu()
