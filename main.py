@@ -1,7 +1,6 @@
-volwers = 'аеёиоуыэюя'
+size_list = int(input('Введите длину списка: '))
 
-text = input('Введите текст: ')
-search_volwers = [vol for vol in text if vol in volwers]
+new_list = [1 if index % 2 == 0 else index % 5
+            for index in range(0, size_list)]
 
-print('\nСписок гласных букв:', search_volwers)
-print('Длина списка:', len(search_volwers))
+print('Результат:', new_list)
